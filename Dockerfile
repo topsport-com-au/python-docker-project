@@ -24,10 +24,10 @@ ENV PATH="$POETRY_HOME/bin:$PATH"
 # Install poetry
 RUN apt-get update \
     && apt-get -y --no-install-recommends install curl default-libmysqlclient-dev \
-    && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - \
+    && curl -sSL https://install.python-poetry.org | python - \
     && apt-get -y purge curl \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
 ARG poetry_options=""
